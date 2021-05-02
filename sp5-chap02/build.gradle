@@ -9,9 +9,9 @@ repositories {
 }
 
 dependencies {
-    compile 'org.springframework:spring-context:5.0.2.RELEASE'
+    implementation('org.springframework:spring-context:5.0.2.RELEASE')
 }
 
-task wrapper(type: Wrapper) {
+wrapper {
     gradleVersion = '4.4'
 }
