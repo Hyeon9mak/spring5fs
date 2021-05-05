@@ -36,8 +36,8 @@ public class MainForAssembler {
                 processChangeCommand(command.split(" "));
                 continue;
             }
+            printHelp();
         }
-        printHelp();
     }
 
     private static void processNewCommand(String[] arg) {
