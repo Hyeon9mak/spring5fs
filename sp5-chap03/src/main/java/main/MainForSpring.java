@@ -9,6 +9,7 @@ import org.springframework.context.ApplicationContext;
 import org.springframework.context.annotation.AnnotationConfigApplicationContext;
 import spring.ChangePasswordService;
 import spring.DuplicateMemberException;
+import spring.MemberListPrinter;
 import spring.MemberNotFoundException;
 import spring.MemberRegisterService;
 import spring.RegisterRequest;
@@ -41,6 +42,12 @@ public class MainForSpring {
                 processChangeCommand(command.split(" "));
                 continue;
             }
+
+            if (command.equals("list")) {
+                processListCommand();
+                continue;
+            }
+
             printHelp();
         }
     }
@@ -88,6 +95,11 @@ public class MainForSpring {
         } catch (WrongIdPasswordException e) {
             System.out.println("이메일과 암호가 일치하지 않습니다.\n");
         }
+    }
+
+    private static void processListCommand() {
+        MemberListPrinter listPrinter = ctx.getBean("listPrinter", MemberListPrinter.class);
+        listPrinter.printAll();
     }
 
     private static void printHelp() {
