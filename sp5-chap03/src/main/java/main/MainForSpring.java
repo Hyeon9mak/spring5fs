@@ -1,6 +1,5 @@
 package main;
 
-import assembler.Assembler;
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
@@ -26,7 +25,7 @@ public class MainForSpring {
 
         BufferedReader reader = new BufferedReader(new InputStreamReader(System.in));
 
-        while(true) {
+        while (true) {
             System.out.println("명령어를 입력하세요: ");
             String command = reader.readLine();
 
@@ -65,7 +64,7 @@ public class MainForSpring {
     }
 
     private static void processNewCommand(String[] arg) {
-        if(arg.length != 5) {
+        if (arg.length != 5) {
             printHelp();
             return;
         }
@@ -77,7 +76,7 @@ public class MainForSpring {
         req.setPassword(arg[3]);
         req.setConfirmPassword(arg[4]);
 
-        if(!req.isPasswordEqualToConfirmPassword()) {
+        if (!req.isPasswordEqualToConfirmPassword()) {
             System.out.println("암호와 확인이 일치하지 않습니다.\n");
             return;
         }
@@ -91,7 +90,7 @@ public class MainForSpring {
     }
 
     private static void processChangeCommand(String[] arg) {
-        if(arg.length != 4) {
+        if (arg.length != 4) {
             printHelp();
             return;
         }
@@ -115,7 +114,7 @@ public class MainForSpring {
     }
 
     private static void processInfoCommand(String[] arg) {
-        if(arg.length != 2) {
+        if (arg.length != 2) {
             printHelp();
             return;
         }
