@@ -1,5 +1,6 @@
 package config;
 
+import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import spring.ChangePasswordService;
@@ -8,6 +9,7 @@ import spring.MemberInfoPrinter;
 import spring.MemberListPrinter;
 import spring.MemberPrinter;
 import spring.MemberRegisterService;
+import spring.MemberSummaryPrinter;
 import spring.VersionPrinter;
 
 @Configuration
@@ -30,13 +32,18 @@ public class AppCtx {
     }
 
     @Bean
-    public MemberPrinter memberPrinter() {
+    public MemberPrinter memberPrinter1() {
         return new MemberPrinter();
     }
 
     @Bean
+    public MemberSummaryPrinter memberPrinter2() {
+        return new MemberSummaryPrinter();
+    }
+
+    @Bean
     public MemberListPrinter listPrinter() {
-        return new MemberListPrinter(memberDao(), memberPrinter());
+        return new MemberListPrinter();
     }
 
     @Bean

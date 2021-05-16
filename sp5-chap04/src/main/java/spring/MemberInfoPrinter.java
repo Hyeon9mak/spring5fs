@@ -10,7 +10,7 @@ public class MemberInfoPrinter {
     public void printMemberInfo(String email) {
         Member member = memDao.selectByEmail(email);
 
-        if(member == null) {
+        if (member == null) {
             System.out.println("데이터 없음\n");
             return;
         }
