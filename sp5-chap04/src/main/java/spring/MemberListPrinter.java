@@ -5,9 +5,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 
 public class MemberListPrinter {
 
-    @Autowired
     private MemberDao memberDao;
-    @Autowired
     private MemberPrinter printer;
 
     public MemberListPrinter() {
@@ -16,5 +14,15 @@ public class MemberListPrinter {
     public void printAll() {
         Collection<Member> members = memberDao.selectAll();
         members.forEach(m -> printer.print(m));
+    }
+
+    @Autowired
+    public void setMemberDao(MemberDao memberDao) {
+        this.memberDao = memberDao;
+    }
+
+    @Autowired
+    public void setPrinter(MemberSummaryPrinter printer) {
+        this.printer = printer;
     }
 }

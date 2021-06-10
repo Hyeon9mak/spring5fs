@@ -22,21 +22,22 @@ public class AppCtx {
 
     @Bean
     public MemberRegisterService memberRegSvc() {
-        return new MemberRegisterService(memberDao());
+        return new MemberRegisterService();
     }
 
     @Bean
     public ChangePasswordService changePwdSvc() {
-        ChangePasswordService pwdSvc = new ChangePasswordService();
-        return pwdSvc;
+        return new ChangePasswordService();
     }
 
     @Bean
+    @Qualifier("printer")
     public MemberPrinter memberPrinter1() {
         return new MemberPrinter();
     }
 
     @Bean
+    @Qualifier("summaryPrinter")
     public MemberSummaryPrinter memberPrinter2() {
         return new MemberSummaryPrinter();
     }
