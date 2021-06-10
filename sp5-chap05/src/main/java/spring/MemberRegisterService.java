@@ -1,7 +1,9 @@
 package spring;
 
 import java.time.LocalDateTime;
+import org.springframework.stereotype.Component;
 
+@Component
 public class MemberRegisterService {
 
     private final MemberDao memberDao;
